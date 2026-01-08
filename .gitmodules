@@ -1,0 +1,3 @@
+[submodule "external/slurp"]
+	path = external/slurp
+	url = git@github.com:anhphan156/slurp.git
