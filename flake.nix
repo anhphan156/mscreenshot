@@ -10,19 +10,25 @@
     pkgs = import nixpkgs {inherit system;};
   in {
     devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [
+      nativeBuildInputs = with pkgs; [
         meson
         ninja
+        pkg-config
+        cmake
+        scdoc
+      ];
+      buildInputs = with pkgs; [
         wayland-protocols
         wayland-scanner
         wayland
-        ninja
         cairo
         libxkbcommon
-        scdoc
+        cjson
+        imagemagick.dev
+      ];
+      packages = with pkgs; [
         llvmPackages.clang-tools
-        pkg-config
-        cmake
+        grim
       ];
     };
   };

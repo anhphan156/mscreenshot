@@ -1,5 +1,5 @@
 project(
-	'meme_screenshot',
+	'mscreenshot',
 	'c',
 	license: 'MIT',
 	meson_version: '>=0.59.0',
@@ -14,9 +14,11 @@ realtime = cc.find_library('rt')
 wayland_client = dependency('wayland-client')
 wayland_cursor = dependency('wayland-cursor')
 xkbcommon = dependency('xkbcommon')
+cjson = dependency('libcjson')
+magickwand = dependency('MagickWand')
 
 executable(
-  'meme_screenshot',
+  'mscreenshot',
   ['src/main.c'],
   link_with: lib_slurp,
   dependencies: [
@@ -25,5 +27,7 @@ executable(
       wayland_client,
       wayland_cursor,
       xkbcommon,
+      cjson,
+      magickwand,
   ],
 )
