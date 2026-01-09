@@ -30,4 +30,5 @@ executable(
       cjson,
       magickwand,
   ],
+  install: true,
 )

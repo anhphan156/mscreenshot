@@ -1,6 +1,6 @@
-#include "MagickCore/magick-type.h"
 #include "external/slurp/include/box.h"
 #include "external/slurp/include/sticker.h"
+#include <MagickCore/magick-type.h>
 #include <MagickWand/MagickWand.h>
 #include <MagickWand/magick-image.h>
 #include <cjson/cJSON.h>
@@ -16,8 +16,7 @@
 
 #define SCREENSHOT_PATH "/tmp/mscreenshot_tmp.png"
 
-char *output_path   = "/tmp/output.png";
-char *template_name = "sparkle";
+char *output_path = "/tmp/output.png";
 
 char        *slurp_main(struct sticker *, size_t);
 static char *read_config(char *, size_t *);
@@ -25,6 +24,8 @@ static void  image_composite(struct sticker *, size_t, char *);
 static void  get_box_dimensions(char *, int *, int *);
 
 int main(int argc, char *argv[]) {
+    char *template_name = "sparkle";
+
     int opt;
     while ((opt = getopt(argc, argv, "s:o:")) != -1) {
         switch (opt) {
@@ -38,7 +39,6 @@ int main(int argc, char *argv[]) {
     }
 
     char *config_file_path = getenv("MEME_SCREENSHOT_CONFIG");
-    config_file_path       = "/home/backspace/data/dev/mscreenshot/scratchpad/config.json";
 
     size_t config_size;
     char  *config = read_config(config_file_path, &config_size);
