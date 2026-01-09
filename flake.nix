@@ -54,12 +54,10 @@
           imagemagick.dev
         ];
 
-        # postInstall = ''
-        #   wrapProgram $out/bin/mscreenshot \
-        #   --suffix PATH : ${lib.makeBinPath [grim]} \
-        #   --set MAGICK_HOME ${imagemagick} \
-        #   --prefix LD_LIBRARY_PATH : ${imagemagick}/lib
-        # '';
+        postInstall = ''
+          wrapProgram $out/bin/mscreenshot \
+          --suffix PATH : ${lib.makeBinPath [grim]}
+        '';
       }) {};
 
     devShells.${system}.default = pkgs.mkShell {

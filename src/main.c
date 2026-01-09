@@ -3,6 +3,7 @@
 #include <MagickCore/magick-type.h>
 #include <MagickWand/MagickWand.h>
 #include <MagickWand/magick-image.h>
+#include <bits/getopt_core.h>
 #include <cjson/cJSON.h>
 #include <fcntl.h>
 #include <stddef.h>
@@ -139,7 +140,10 @@ static void image_composite(struct sticker *stickers, size_t stickers_size, char
         size_t w_overlay = MagickGetImageWidth(overlay);
         size_t h_overlay = MagickGetImageHeight(overlay);
 
-        struct slurp_box box;
+        struct slurp_box box = {
+            .x = 0,
+            .y = 0,
+        };
         get_box_dimensions(region, &box.width, &box.height);
 
         double x        = 0;
