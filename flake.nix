@@ -13,6 +13,16 @@
       packages = with pkgs; [
         meson
         ninja
+        wayland-protocols
+        wayland-scanner
+        wayland
+        ninja
+        cairo
+        libxkbcommon
+        scdoc
+        llvmPackages.clang-tools
+        pkg-config
+        cmake
       ];
     };
   };
