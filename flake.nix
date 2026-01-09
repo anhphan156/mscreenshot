@@ -58,6 +58,10 @@
           wrapProgram $out/bin/mscreenshot \
           --suffix PATH : ${lib.makeBinPath [grim]}
         '';
+
+        meta = {
+          mainProgram = "mscreenshot";
+        };
       }) {};
 
     devShells.${system}.default = pkgs.mkShell {
