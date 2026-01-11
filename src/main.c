@@ -97,7 +97,6 @@ int main(int argc, char *argv[]) {
 
     pid_t pid = fork();
     if (pid == 0) {
-        sleep(1);
         int ret = execlp("grim", "grim", "-g", region, "-t", "png", SCREENSHOT_PATH, NULL);
         if (ret == -1) {
             perror("execlp");
