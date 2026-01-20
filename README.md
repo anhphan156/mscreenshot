@@ -1,5 +1,5 @@
 # Mscreenshot
-A tool that overlay a meme on top of your screenshot.
+A tool that overlay a meme on top of your screenshot. It uses slurp and grim to take a screenshot, then compose an image with imagemagick. And, it only works on wayland.
 
 ![Imgur](video.gif)
 
